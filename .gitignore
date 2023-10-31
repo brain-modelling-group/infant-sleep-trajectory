@@ -1,0 +1,5 @@
+# ignore file to save data objects
+pull_in_data_objects.R
+
+# ignore .asv
+*.asv
