@@ -6,7 +6,7 @@ Example code used in *Mapping the physiological changes in sleep regulation acro
 
 Sleep_Model_PRF.m is the main file, which implements the combined Phillips and Robinson-Forger model of the sleep/wake switch, sleep homeostatic process, and circadian pacemaker.
 
-Sleep_Model_PRF.m defines the model parameter values *p*, then calls the model via Run_prf_2023.m for a set time *T*. Run_prf_2023.m runs the model for 4 weeks as a warm up to remove any transients, the using the last model state as the initial value solves for time *T*, and extracts the last 2 weeks of the model output. The model is called via phillips_forger_model_2023.m.
+Sleep_Model_PRF.m defines the model parameter values *p*, then calls the model via Run_prf_2023.m for a set time *T*. Run_prf_2023.m runs the model for 4 weeks as a warm up to remove any transients, the using the last model state as the initial value solves for time *T*, and extracts the last 2 weeks of the model output. The model is called via phillips_forger_model_2023.m, which also calls light_func.m and sigmoid.m.
 
 The Matlab function Get_sleep_results_2023.m calculates a number of sleep behaviour summary measurements, including the probability of being asleep per 30 minute window for the last 7 days of the model produced time series. 
 
