@@ -1,5 +1,8 @@
 function out = Run_prf_2023(x0,T,p)
     %% Solve the differential equations
+    % x0 is initial conditions
+    % T is maximum time to solve for in hours
+    % p is model parameters
 
     % Solve from initial conditions pre-specified (x0)
     [~,Y] = ode23s(@phillips_forger_model_2023,[0,4*7*24],x0',odeset,p); % This uses 4 weeks to remove transients

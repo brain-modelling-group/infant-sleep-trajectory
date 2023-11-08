@@ -8,11 +8,11 @@
 % based on code provided by AJK Phillips
 
 % L Webb
+% 2023
 
 %% Specify simulation settings
 
 numdays = 35;
-
 T = numdays*24; % max time (h) to simulate, output is last two weeks
 
 x0 = [0.6,-6.7,14.6,0.35,-0.86,-0.59]'; % initial conditions (Vm,Vv,H,n,x,xc)
@@ -69,4 +69,17 @@ child_out = Run_prf_2023(x0,T,p_child);
 adult_res = Get_sleep_results_2023(adult_out);
 child_res = Get_sleep_results_2023(child_out);
 
+%% Illustrative plot of time series snapshot
+
+figure
+subplot(2,1,1);
+plot(adult_out(1,adult_out(1,:) < (min(adult_out(1,:)) + 48)) - min(adult_out(1,:)), adult_out(10,adult_out(1,:) < (min(adult_out(1,:)) + 48)));
+xlabel("Time");xticks([0:6:48]);xticklabels(["12am" "6am" "12pm" "6pm" "12am" "6am" "12pm" "6pm" "12am"]);
+ylabel("Arousal State"); ylim([-0.1 1.1]); yticks([0 1]); yticklabels(["Sleep" "Wake"]);
+title("Adult illustrative case")
+subplot(2,1,2);
+plot(child_out(1,child_out(1,:) < (min(child_out(1,:)) + 48)) - min(child_out(1,:)), child_out(10,child_out(1,:) < (min(child_out(1,:)) + 48)));
+xlabel("Time");xticks([0:6:48]);xticklabels(["12am" "6am" "12pm" "6pm" "12am" "6am" "12pm" "6pm" "12am"]);
+ylabel("Arousal State"); ylim([-0.1 1.1]); yticks([0 1]); yticklabels(["Sleep" "Wake"]);
+title("Infant illustrative case")
 

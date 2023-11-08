@@ -4,6 +4,8 @@ function dy = phillips_forger_model_2023(t,y,p)
 % Based on code from AJK Phillips
 
 % Variables: y(1) = Vm, y(2) = Vv, y(3) = H, y(4) = n, y(5) = x, y(6) = xc
+%            p is cell of model parameters
+%            t is in hours
 
 % define circadian input to VLPO
 C = 0.5*(1+0.80*y(6)-0.47*y(5));
