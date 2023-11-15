@@ -1,7 +1,10 @@
-function dy = phillips_forger_model_2023(t,y,p)
+function dy = phillips_sleep_model_2023(t,y,p)
 % Define differential equations for combined sleep-circadian model.
-% Equations from Skeldon et al. (2017)
-% Based on code from AJK Phillips
+% Sleep switch is from Phillips and Robinson (2007).
+% Circadian drive is modified forced van der Pol oscillator from 
+% Forger et al. (1999).
+% Equations from Skeldon et al. (2017).
+% Based on code from AJK Phillips.
 
 % Variables: y(1) = Vm, y(2) = Vv, y(3) = H, y(4) = n, y(5) = x, y(6) = xc
 %            p is cell of model parameters

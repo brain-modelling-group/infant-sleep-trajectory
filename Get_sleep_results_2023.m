@@ -1,6 +1,6 @@
 function results = Get_sleep_results_2023(output)
 % output contains 2 weeks of model time series
-% output is the output from Run_prf_2023.m
+% output is the output from Run_pr_2023.m
 
 % get time period being assessed
 assess = output; 

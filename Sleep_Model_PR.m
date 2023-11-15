@@ -1,7 +1,8 @@
-%% Code for solving the combined Phillips-Forger model of the sleep/wake switch, sleep homeostatic process, and circadian pacemaker
+%% Code for solving the Phillips-Robinson model of the sleep/wake switch, sleep homeostatic process, and circadian pacemaker
 
 % Inputs to the model are light (defined in light_func) and choice of model
-% parameters (p).
+% parameters (p). The circadian pacemaker used is a modifed forced van der
+% Pol oscillator (Forger 1999). 
 % Outputs of the model are the model variables for the sleep/wake switch,
 % sleep homeostatic proccss, and circadian pacemaker.
 
@@ -61,8 +62,8 @@ p_child{9} = 7.80/sph; % mu
 p_child{13} = 0.9; % b
 
 
-adult_out = Run_prf_2023(x0,T,p);
-child_out = Run_prf_2023(x0,T,p_child);
+adult_out = Run_pr_2023(x0,T,p);
+child_out = Run_pr_2023(x0,T,p_child);
 
 %% sleep time series results of interest
 

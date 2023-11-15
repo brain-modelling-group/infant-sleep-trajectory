@@ -1,17 +1,17 @@
-function out = Run_prf_2023(x0,T,p)
+function out = Run_pr_2023(x0,T,p)
     %% Solve the differential equations
     % x0 is initial conditions
     % T is maximum time to solve for in hours
     % p is model parameters
 
     % Solve from initial conditions pre-specified (x0)
-    [~,Y] = ode23s(@phillips_forger_model_2023,[0,4*7*24],x0',odeset,p); % This uses 4 weeks to remove transients
+    [~,Y] = ode23s(@phillips_sleep_model_2023,[0,4*7*24],x0',odeset,p); % This uses 4 weeks to remove transients
     Y=Y'; % Transpose of Y
     disp('Finished transient')
     
     % Remove transient and solve again
     x0 = Y(:,end);
-    sol = ode23s(@phillips_forger_model_2023,[0,T],x0',odeset,p);
+    sol = ode23s(@phillips_sleep_model_2023,[0,T],x0',odeset,p);
     disp('Finished simulation')
     
     % extracting last two weeks, from t0 to T
